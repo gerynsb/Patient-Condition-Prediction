@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediksi Kondisi</title>
+    <!-- Link ke file CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Masukkan Gejala Anda</h1>
+        <form method="POST" action="/predict">
+            <textarea name="symptom" placeholder="Tulis gejala Anda di sini..." required></textarea>
+            <br>
+            <button type="submit">Kirim</button>
+        </form>
+        {% if symptom and prediction %}
+        <div class="result">
+            <p><strong>Gejala:</strong> {{ symptom }}</p>
+            <p><strong>Prediksi:</strong> {{ prediction }}</p>
+        </div>
+        {% endif %}
+    </div>
+    <footer>
+        © 2024 Prediksi Kondisi Kesehatan | Dibuat dengan Flask dan Python
+    </footer>
+</body>
+</html>
